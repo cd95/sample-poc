@@ -1,0 +1,84 @@
+openapi: 3.0.3
+info:
+  title: Data Source POC API
+  description: Dummy GET endpoints that each return a single flat record, like one row from a db table.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+paths:
+  /health:
+    get:
+      summary: Health check
+      operationId: getHealth
+      responses:
+        '200':
+          description: Service is up
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status: { type: string, example: ok }
+  /api/github:
+    get:
+      summary: Get a GitHub repository record
+      operationId: getGithubData
+      responses:
+        '200':
+          description: A dummy GitHub repository row
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Github'
+  /api/okta:
+    get:
+      summary: Get an Okta user record
+      operationId: getOktaData
+      responses:
+        '200':
+          description: A dummy Okta user row
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Okta'
+  /api/aws:
+    get:
+      summary: Get an AWS EC2 instance record
+      operationId: getAwsData
+      responses:
+        '200':
+          description: A dummy AWS EC2 instance row
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Aws'
+components:
+  schemas:
+    Github:
+      type: object
+      properties:
+        id: { type: integer }
+        name: { type: string }
+        full_name: { type: string }
+        private: { type: boolean }
+        language: { type: string }
+        stargazers_count: { type: integer }
+        open_issues_count: { type: integer }
+    Okta:
+      type: object
+      properties:
+        id: { type: string }
+        status: { type: string, enum: [ACTIVE, SUSPENDED, DEPROVISIONED] }
+        login: { type: string }
+        first_name: { type: string }
+        last_name: { type: string }
+        last_login: { type: string, format: date-time }
+    Aws:
+      type: object
+      properties:
+        instance_id: { type: string }
+        region: { type: string }
+        instance_type: { type: string }
+        state: { type: string }
+        name: { type: string }
+        env: { type: string }
