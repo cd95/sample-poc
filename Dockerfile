@@ -1,7 +1,6 @@
 FROM node:20-alpine
 WORKDIR /app
-COPY package*.json ./
-RUN npm install --omit=dev
+# node_modules is committed to the repo, so no npm install step is needed.
 COPY . .
 ENV PORT=3000
 EXPOSE 3000

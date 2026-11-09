@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Data Source POC API
-  description: Dummy GET endpoints that each return a single flat record, like one row from a db table.
+  description: Dummy GET endpoints that each return a list of flat records, like rows from a db table.
   version: 1.0.0
 servers:
   - url: http://localhost:3000
@@ -21,37 +21,43 @@ paths:
                   status: { type: string, example: ok }
   /api/github:
     get:
-      summary: Get a GitHub repository record
+      summary: Get GitHub repository records
       operationId: getGithubData
       responses:
         '200':
-          description: A dummy GitHub repository row
+          description: List of dummy GitHub repository rows
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Github'
+                type: array
+                items:
+                  $ref: '#/components/schemas/Github'
   /api/okta:
     get:
-      summary: Get an Okta user record
+      summary: Get Okta user records
       operationId: getOktaData
       responses:
         '200':
-          description: A dummy Okta user row
+          description: List of dummy Okta user rows
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Okta'
+                type: array
+                items:
+                  $ref: '#/components/schemas/Okta'
   /api/aws:
     get:
-      summary: Get an AWS EC2 instance record
+      summary: Get AWS EC2 instance records
       operationId: getAwsData
       responses:
         '200':
-          description: A dummy AWS EC2 instance row
+          description: List of dummy AWS EC2 instance rows
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Aws'
+                type: array
+                items:
+                  $ref: '#/components/schemas/Aws'
 components:
   schemas:
     Github:

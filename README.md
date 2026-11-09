@@ -1,12 +1,12 @@
 # Data Source POC
 
-A dummy Node.js (Express) app that simulates reading data from different data sources. Each source exposes a single `GET` endpoint that returns one flat record (as if read from a db table row), with no arrays or nested objects.
+A dummy Node.js (Express) app that simulates reading data from different data sources. Each source exposes a single `GET` endpoint that returns a JSON array of flat records (as if read from a db table), with no nested objects.
 
 | Endpoint | Description |
 |---|---|
-| `GET /api/github` | A repository record |
-| `GET /api/okta` | A user record |
-| `GET /api/aws` | An EC2 instance record |
+| `GET /api/github` | List of repository records |
+| `GET /api/okta` | List of user records |
+| `GET /api/aws` | List of EC2 instance records |
 | `GET /health` | Health check |
 | `GET /openapi.yaml` | The OpenAPI spec ([openapi.yaml](openapi.yaml)) |
 
