@@ -79,6 +79,7 @@ components:
         first_name: { type: string }
         last_name: { type: string }
         last_login: { type: string, format: date-time }
+        department: { type: string }
     Aws:
       type: object
       properties:

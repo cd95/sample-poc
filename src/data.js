@@ -8,9 +8,9 @@ const github = [
 ];
 
 const okta = [
-  { id: '00u1a', status: 'ACTIVE', login: 'alice@acme.example', first_name: 'Alice', last_name: 'Johnson', last_login: '2026-11-05T09:12:00Z' },
-  { id: '00u1b', status: 'ACTIVE', login: 'bob@acme.example', first_name: 'Bob', last_name: 'Smith', last_login: '2026-11-07T14:40:00Z' },
-  { id: '00u1c', status: 'SUSPENDED', login: 'carol@acme.example', first_name: 'Carol', last_name: 'Lee', last_login: '2026-09-21T08:03:00Z' },
+  { id: '00u1a', status: 'ACTIVE', login: 'alice@acme.example', first_name: 'Alice', last_name: 'Johnson', last_login: '2026-11-05T09:12:00Z', department: 'Engineering' },
+  { id: '00u1b', status: 'ACTIVE', login: 'bob@acme.example', first_name: 'Bob', last_name: 'Smith', last_login: '2026-11-07T14:40:00Z', department: 'Finance' },
+  { id: '00u1c', status: 'SUSPENDED', login: 'carol@acme.example', first_name: 'Carol', last_name: 'Lee', last_login: '2026-09-21T08:03:00Z', department: 'Marketing' },
 ];
 
 const aws = [
